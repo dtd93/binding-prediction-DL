@@ -1,0 +1,6 @@
+[init]
+configPath=/Users/davidtamayodomenech/Documents/projects/binding-prediction-DL/src/config.file
+target=104717
+datafolder=/Users/davidtamayodomenech/Documents/projects/binding-prediction-DL/data/
+sdfFilePath=/Users/davidtamayodomenech/Documents/projects/binding-prediction-DL/data/chembl_22_1.sdf
+mysqlPass=toor
