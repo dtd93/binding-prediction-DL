@@ -22,9 +22,10 @@ def pdbWriterFromSdf(file,path):
 def pdbWriterFromSmiles(smiles,path):
     for smile in smiles:
         m = Chem.MolFromSmiles(smile[1])
-        mol = molto3d(m)
+        mol = molto3D(m)
         AllChem.rdmolfiles.MolToPDBFile(mol, path+smile[0]+".pdb")
 
-def pdbToPdbqt(smiles,path):
+def pdbToPdbqt(smiles,path,scriptMGLPath):
     for s in smiles:
-        os.system("/Library/MGLTools/1.5.6/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r "+ smile[0] +".pdb -o "+smile[0]+".pdbqt")
+        os.system(scriptMGLPath+"prepare_receptor4.py -r "+ smile[0] +".pdb -o "+smile[0]+".pdbqt")
+        subprocess.call([scriptMGLPath+"/prepare_receptor4.py -r "+ path + smile[0] + ".pdb -o " + path + smile[0] +".pdbqt"],shell=True)

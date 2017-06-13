@@ -12,10 +12,11 @@ def main(configPath):
     sdfFilePath = parser.get('init', 'sdfFilePath')
     datafolder = parser.get('init', 'datafolder')
     mysqlPass = parser.get('init', 'mysqlPass')
+    scriptMGLPath = parser.get('init', 'MGLToolsPath')
     ligands = m.getLigandsMolregno(targetId,mysqlPass)
     allInfo = ss.getSmiles(ligands)
     mc.pdbWriterFromSmiles(allInfo,datafolder+"aux/")
-    mc.pdbToPdbqt(allInfo,datafolder+"aux/")
+    mc.pdbToPdbqt(allInfo,datafolder+"aux/",scriptMGLPath)
     return allInfo
     
 def test():
