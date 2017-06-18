@@ -3,6 +3,7 @@ from socket import socket
 from rdkit import Chem
 import numpy as np
 from chemblmining import miner as m
+import random
 
 # llamda sql traemos smile con id, 
 # cogemos smile de aquella que esten en los ligandos, o de que aquellas que entren por probabilidad y guardamos en un array si hacen biniding o no

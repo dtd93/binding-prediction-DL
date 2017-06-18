@@ -3,24 +3,12 @@ from htmd.molecule import voxeldescriptors as vd
 
 #Descriptors
 
-def get_descriptors(pdbs):
-    descriptors=[]
-    for pdb in pdbs:
+def get_descriptors(path, ligands, boxSize):
+    descriptors= np.empty(shape=[0,1])
+    for ligand in ligands:
         #Load into Molecule class
-        mol = Molecule(pdb)
-        
-        
-        #Center the molecule
-        coo = mol.get('coords')
-        c = np.mean(coo, axis=0)
-        mol.moveBy(-c)
-        
-        ####Rotate the molecule (?)
-        #ligcenter = np.mean(mol.get('coords'),axis=0)
-        #M = uniformRandomRotation()
-        #mol.rotateBy(M,center=ligcenter)
-        
-        #Get descriptor for it
-        #descriptor = vd.getVoxelDescriptors(mol, usercenters = None, voxelsize = 1, buffer = 8, channels = 0)
-        #descriptors.append(descriptor)
+        mol = Molecule(path + ligands[0] +".pdbqt")
+        point = np.squeeze(mol.coords).mean(axis=0)
+        desc = vd.getPointDescriptors(mol, point, size=[boxSize]*3)
+        descriptors = np.append(descriptors, desc)
     return descriptors
