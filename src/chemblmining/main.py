@@ -13,12 +13,17 @@ def main(configPath):
     datafolder = parser.get('init', 'datafolder')
     mysqlPass = parser.get('init', 'mysqlPass')
     scriptMGLPath = parser.get('init', 'MGLToolsPath')
-    ligands = m.getLigandsMolregno(targetId,mysqlPass)
-    allInfo = ss.getSmiles(ligands)
-    ss.exportFileData(allInfo,datafolder)
-    mc.pdbWriterFromSmiles(allInfo,datafolder+"aux/")
-    mc.pdbToPdbqt(allInfo,datafolder+"aux/",scriptMGLPath)
-    return allInfo
-    
+    loadFromAuxFile = int(parser.get('init', 'loadFromAuxFile'))
+    if not loadFromAuxFile:
+        ligands = m.getLigandsMolregno(targetId,mysqlPass)
+        allInfo = ss.getSmiles(ligands)
+        mc.pdbWriterFromSmiles(allInfo,datafolder+"aux/")
+        mc.pdbToPdbqt(allInfo,datafolder+"aux/",scriptMGLPath)
+        ss.exportFileData(allInfo,datafolder)
+        return allInfo
+    else:
+        allInfo = ss.loadFromFile(datafolder)
+        return allInfo
+        
 def test():
     print("hello")

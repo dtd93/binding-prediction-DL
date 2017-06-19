@@ -49,3 +49,13 @@ def exportFileData(info, datafolder):
     file = open(datafolder+"aux.data", "w")
     for lig in info:
         file.write(str(lig[0])+" "+str(lig[1])+" "+ str(lig[2]) +"\n")
+
+
+def loadFromFile(datafolder):
+    Matrix = []
+    with open(datafolder+"aux.data") as f:
+        for line in f:
+            values = line.split() 
+            Matrix.append()
+    finalSelect = np.array(Matrix)
+    return finalSelect

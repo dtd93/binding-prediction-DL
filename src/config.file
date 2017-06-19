@@ -11,3 +11,4 @@ nClases=1
 nEpoch=100
 batchSize=100
 nFilters=64
+loadFromAuxFile=0
