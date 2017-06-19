@@ -56,6 +56,6 @@ def loadFromFile(datafolder):
     with open(datafolder+"aux.data") as f:
         for line in f:
             values = line.split() 
-            Matrix.append()
+            Matrix.append(values)
     finalSelect = np.array(Matrix)
     return finalSelect

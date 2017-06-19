@@ -10,7 +10,7 @@ def main():
     configPath = parser.get('init', 'configPath')
     ligands = miner.main(configPath)
     descriptors, labels = desc.main(configPath, ligands)
-    cnn.main(configPath, ligands, descriptors, labels)
+    cnn.main(configPath, descriptors, labels)
 
     
 if __name__ == "__main__":

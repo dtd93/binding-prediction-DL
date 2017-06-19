@@ -2,7 +2,7 @@ from cnn import network as net
 from cnn import dataPreparer as dp
 from configparser import ConfigParser
 
-def main(configPath, ligands, descriptors, labels):
+def main(configPath, descriptors, labels):
     parser = ConfigParser()
     parser.read(configPath)
     datafolder = parser.get('init', 'datafolder')

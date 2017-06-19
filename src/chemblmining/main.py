@@ -22,8 +22,9 @@ def main(configPath):
         ss.exportFileData(allInfo,datafolder)
         return allInfo
     else:
+        print("Loading data from file")
         allInfo = ss.loadFromFile(datafolder)
         return allInfo
-        
+
 def test():
     print("hello")
