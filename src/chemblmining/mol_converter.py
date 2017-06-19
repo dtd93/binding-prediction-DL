@@ -3,6 +3,8 @@ from socket import socket
 from rdkit import Chem
 from rdkit.Chem import AllChem
 import os
+import subprocess
+
 
 
 def molto3D(mol):
@@ -26,6 +28,12 @@ def pdbWriterFromSmiles(smiles,path):
         AllChem.rdmolfiles.MolToPDBFile(mol, path+smile[0]+".pdb")
 
 def pdbToPdbqt(smiles,path,scriptMGLPath):
-    for s in smiles:
-        os.system(scriptMGLPath+"prepare_receptor4.py -r "+ smile[0] +".pdb -o "+smile[0]+".pdbqt")
-        subprocess.call([scriptMGLPath+"/prepare_receptor4.py -r "+ path + smile[0] + ".pdb -o " + path + smile[0] +".pdbqt"],shell=True)
+    aux = len(smiles)/100
+    cont = aux
+    print("Converting pdb to pdbqt")
+    for i, smile in enumerate(smiles):
+        cont -= 1
+        if cont < 0:
+            cont = aux
+            print(str((i/len(smiles))*100)+"%")
+        subprocess.call([scriptMGLPath+"/prepare_receptor4.py -r "+ path +"aux/"+ smile[0] + ".pdb -o " + path+"auxQT/" + smile[0] +".pdbqt"],shell=True)

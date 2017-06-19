@@ -31,8 +31,8 @@ def runCNN(boxSize, nFilters, kernelSize, nClases, nEpoch, batchSize, X, Y):
     model.add(Dropout(0.5))
 
     # Softmax Layer
-    model.add(Dense(nClases, init='normal'))
-    model.add(Activation('softmax'))
+    model.add(Dense(nClases))
+    model.add(Activation('sigmoid'))
 
     # Compile
     model.compile(loss='categorical_crossentropy',

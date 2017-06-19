@@ -31,7 +31,7 @@ def getLigandsMolregno(tid,passw):
     ligands = []
     cnx = mysql.connector.connect(user='root', database='chembl', password=passw)
     cursor = cnx.cursor()
-    query = ("select ac.MOLREGNO from activities ac, assays a where ac.ASSAY_ID = a.ASSAY_ID and a.TID = '"+tid+"' and ac.STANDARD_TYPE = \"IC50\" and ac.STANDARD_UNITS = \"nM\" and ac.STANDARD_VALUE < 10000 and a.ASSAY_TYPE = \"B\" and a.CONFIDENCE_SCORE >= 7")
+    query = ("select distinct(ac.MOLREGNO) from activities ac, assays a where ac.ASSAY_ID = a.ASSAY_ID and a.TID = '"+tid+"' and ac.STANDARD_TYPE = \"IC50\" and ac.STANDARD_UNITS = \"nM\" and ac.STANDARD_VALUE < 10000 and a.ASSAY_TYPE = \"B\" and a.CONFIDENCE_SCORE >= 7")
     cursor.execute(query)  
     for c in cursor: #Guarda los resultados de la query en la lista ligands
         ligands.append(c[0])

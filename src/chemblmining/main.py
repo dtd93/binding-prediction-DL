@@ -1,7 +1,7 @@
 from chemblmining import miner as m
 from chemblmining import sdf_cuter as sc
 from chemblmining import smile_seeker as ss
-rom chemblmining import mol_converter as mc
+from chemblmining import mol_converter as mc
 from configparser import ConfigParser
 
 
