@@ -15,6 +15,7 @@ def main(configPath):
     scriptMGLPath = parser.get('init', 'MGLToolsPath')
     ligands = m.getLigandsMolregno(targetId,mysqlPass)
     allInfo = ss.getSmiles(ligands)
+    ss.exportFileData(allInfo,datafolder)
     mc.pdbWriterFromSmiles(allInfo,datafolder+"aux/")
     mc.pdbToPdbqt(allInfo,datafolder+"aux/",scriptMGLPath)
     return allInfo

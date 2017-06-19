@@ -43,3 +43,9 @@ def getSmiles(ligands):
     print(cont2)
     finalSelect = np.array(Matrix)
     return finalSelect
+
+
+def exportFileData(info, datafolder):
+    file = open(datafolder+"aux.data", "w")
+    for lig in info:
+        file.write(str(lig[0])+" "+str(lig[1])+" "+ str(lig[2]) +"\n")
