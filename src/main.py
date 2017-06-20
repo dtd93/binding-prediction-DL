@@ -9,8 +9,8 @@ def main():
     parser.read("config.file")
     configPath = parser.get('init', 'configPath')
     ligands = miner.main(configPath)
-    descriptors, labels = desc.main(configPath, ligands)
-    cnn.main(configPath, descriptors, labels)
+    descriptors, labels, maxSize = desc.main(configPath, ligands)
+    cnn.main(configPath, descriptors, labels, maxSize)
 
     
 if __name__ == "__main__":
