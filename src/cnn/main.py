@@ -1,5 +1,4 @@
 from cnn import network as net
-from cnn import dataPreparer as dp
 from configparser import ConfigParser
 
 def main(configPath, descriptors, labels, maxSize):

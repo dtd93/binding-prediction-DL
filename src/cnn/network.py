@@ -55,7 +55,7 @@ def runCNN(boxSize, nFilters, kernelSize, nClases, nEpoch, batchSize, X, Y, data
             optimizer= Adam(), metrics=['accuracy', recall])
 
     # Fit network
-    model.fit(X_train, Y_train, batch_size= batchSize, epochs=nEpoch, verbose=1)
+    model.fit(X_train, Y_train, batch_size= batchSize, epochs=nEpoch, verbose=1, validation_split=0.15)
     
     
     nf.evaluateModel(model, X_train, Y_train)
