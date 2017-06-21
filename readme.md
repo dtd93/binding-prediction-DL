@@ -15,6 +15,6 @@ This module is responsible for generating the CNN, and train it with the data ge
 To begin, you must configure the configuration file, indicating the parameters you want.
 Once the configuration file is completed, the entire project is executed simply by running main.py inside / src:
 
-### python /binding-prediction-DL/src/main.py
+`python /binding-prediction-DL/src/main.py`
 
 Python 3.5 required
